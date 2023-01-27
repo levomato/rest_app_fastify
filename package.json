@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "fastify": "^4.12.0",
+    "prisma": "^4.9.0",
     "typescript": "^4.9.4"
   },
   "devDependencies": {
