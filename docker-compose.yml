@@ -1,0 +1,22 @@
+version: '3.7.7'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=backend
+      - POSTGRES_PASSWORD=backend_dev
+      - POSTGRES_DB=fastify-prisma-dev
+    ports:
+      - 5432:5432
+  blog-app:
+    container_name: blog-app
+    environment:
+      - NODE_ENV:production
+      - DATABASE_URL=postgresql://backend:backend_dev@db:5432/fastify-prisma-dev?schema=public
+      - SERVER_HOST=0.0.0.0
+    build:
+      context: ./
+    ports:
+      - 3000:3000
+    depends_on:
+      - db

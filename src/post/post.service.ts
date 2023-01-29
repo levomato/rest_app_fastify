@@ -21,10 +21,6 @@ export async function getPosts() {
         }
     })
 
-    console.log(posts.then((posts) => {
-        console.log(posts)
-    }))
-
     return posts
 }
 
