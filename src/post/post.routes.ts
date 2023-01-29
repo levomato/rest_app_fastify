@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { createPostHandler, getPostHandler, getPostsHandler } from "./post.controller";
+import { createPostHandler, getPostHandler, getPostsHandler, updatePostHandler } from "./post.controller";
 import { $ref } from "./post.schema";
 import { getPostById } from "./post.service";
 
@@ -28,6 +28,15 @@ async function postRoutes(server: FastifyInstance) {
             }
         }
     }, getPostHandler)
+
+    server.put("/:id", {
+        schema: {
+            body: $ref('updatePostSchema'),
+            response: {
+                200: $ref('postResponseSchema')
+            }
+        }
+    }, updatePostHandler)
 }
 
 export default postRoutes;
