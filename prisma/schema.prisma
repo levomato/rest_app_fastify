@@ -18,7 +18,6 @@ model posts {
   content   String?
   likes     Int        @default(0)
   dislikes  Int        @default(0)
-  ownerId   Int
   comments  comments[]
 }
 
